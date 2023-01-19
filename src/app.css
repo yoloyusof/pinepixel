@@ -61,26 +61,9 @@ b-x {
   background-color: rgb(45, 45, 45)
 }
 
-#pallete {
-  display: grid;
-  grid-template-columns: 0.2fr 0.2fr 0.2fr;
-  grid-template-rows: 0.2fr 0.2fr 0.2fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    ". . ."
-    ". . ."
-    ". . .";
-}
 
 .colorBlock {
-  background-color: black;
+  display: flex;
   border: var(--box-border);
-  padding: 30px;
-  transition: 0.3s;
-  width: 20px;
-  height: 20px;
-}
-
-.colorBlock:hover {
-  background-color: rgb(45, 45, 45)
+  padding: 10px;
 }
