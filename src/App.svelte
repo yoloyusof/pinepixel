@@ -37,6 +37,14 @@
         selectedColor = color.style.backgroundColor;
       };
     }
+
+    document.getElementById("tools.clear").onclick = () => {
+      for (var i = 0; i < elements.length; i++) {
+        let element = elements[i] as HTMLDivElement;
+
+        element.style.backgroundColor = "black"
+      }
+    }
   });
 </script>
 
@@ -55,14 +63,17 @@
       <div class="colorBlock" style="background-color: purple;" />
       <div class="colorBlock" style="background-color: orange;" />
       <div class="colorBlock" style="background-color: black;" />
+      <div class="colorBlock" style="background-color: brown;" />
       <br />
-      <div id="selectedColorBlock">
-        <div class="colorBlock" style="background-color: {selectedColor};" />
-      </div>
+      <div class="colorBlock" id="selectedColorBlock" style="background-color: {selectedColor};" />
     </div>
   </b-x>
+  <b-x id="tools">
+    <h3>Tools</h3>
+    <button id="tools.clear">Clear</button>
+  </b-x>
   <div id="container">
-    {#each Array(100) as _, i}
+    {#each Array(225) as _, i}
       <div class="block" style="background-color: black;" />
     {/each}
   </div>
