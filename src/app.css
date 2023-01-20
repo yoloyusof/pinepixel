@@ -5,6 +5,7 @@
 
   --box-border: 1px solid #484848;
   --block-border: 2px dashed #7c7c7c;
+  --block-hover-border: 2px dashed rgba(0, 0, 0, 0.8);
   --box-outline: 2px solid #0e0e0e;
   user-select: none;
   background-color: rgb(36, 36, 36);
@@ -45,7 +46,8 @@ b-x {
 }
 
 .block:hover {
-  background-color: rgb(45, 45, 45)
+  border: var(--block-hover-border);
+  opacity: .5;
 }
 
 
