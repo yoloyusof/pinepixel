@@ -64,6 +64,7 @@
       <div class="colorBlock" style="background-color: orange;" />
       <div class="colorBlock" style="background-color: black;" />
       <div class="colorBlock" style="background-color: brown;" />
+      <div class="colorBlock" style="background-color: blue;" />
       <br />
       <div class="colorBlock" id="selectedColorBlock" style="background-color: {selectedColor};" />
     </div>
