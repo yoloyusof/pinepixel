@@ -1,14 +1,29 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  let selectedColor = "rgb(255,255,255)"
+  let selectedColor = "rgb(255,255,255)";
 
   onMount(() => {
     let elements = document.getElementsByClassName("block");
-    let colors = document.getElementsByClassName("pallete")
+    let colors = document.getElementsByClassName("colorBlock");
+    // Determine if mouse is down
+    let mouseDown = 0;
+
+    document.onmousedown = function () {
+      ++mouseDown;
+    };
+    document.onmouseup = function () {
+      --mouseDown;
+    };
+    //
 
     for (var i = 0; i < elements.length; i++) {
       let element = elements[i] as HTMLDivElement;
+
+      element.onmouseover = () => {
+        if (mouseDown !== 1) return;
+        element.style.backgroundColor = selectedColor;
+      };
 
       element.onclick = () => {
         element.style.backgroundColor = selectedColor;
@@ -26,114 +41,29 @@
 </script>
 
 <main>
+  <b-x id="title">
+    <h1>pinepixel</h1>
+    <h2>a yusof project</h2>
+  </b-x>
   <b-x id="colors">
-    <div class="pallete">
-      <div class="colorBlock" style="background-color: red;"></div>
-      <div class="colorBlock" style="background-color: gray;"></div>
-      <div class="colorBlock" style="background-color: white;"></div>
-      <div class="colorBlock" style="background-color: green;"></div>
+    <div id="pallete">
+      <div class="colorBlock" style="background-color: red;" />
+      <div class="colorBlock" style="background-color: gray;" />
+      <div class="colorBlock" style="background-color: white;" />
+      <div class="colorBlock" style="background-color: green;" />
+      <div class="colorBlock" style="background-color: yellow;" />
+      <div class="colorBlock" style="background-color: purple;" />
+      <div class="colorBlock" style="background-color: orange;" />
+      <div class="colorBlock" style="background-color: black;" />
+      <br />
+      <div id="selectedColorBlock">
+        <div class="colorBlock" style="background-color: {selectedColor};" />
+      </div>
     </div>
   </b-x>
   <div id="container">
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
-    <div class="block" />
+    {#each Array(100) as _, i}
+      <div class="block" style="background-color: black;" />
+    {/each}
   </div>
 </main>
